@@ -257,6 +257,7 @@
 			var wd = angular.element('.mid img').width();
 			var ht = angular.element('.mid img').height();
 			angular.element('.canvas-container,canvas').css({width:wd+'px', height:ht+'px'});
+			alert('monika deployed');
 		});
 
 	}

@@ -1,0 +1,91 @@
+.autoWidth{
+	width: auto !important;
+
+}
+.activeCls{
+	background-color: #269abc;
+    border-color: #1b6d85;
+}
+.properties-panel{
+	margin: 20px 5px;
+    background-color: #fff;
+    border-radius: 3px;
+    border: 1px solid #cdcdcd;
+    position: absolute;
+    width: 280px;
+    left: 58px;
+    top: 70px;
+    z-index: 11;
+    height: auto!important;
+    overflow: hidden;
+}
+.bottom-bar {
+    position: fixed;
+    bottom: 0;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    height: 100px;
+}
+.controllerButton{
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    width: 100%;
+    left: 0;
+    right: 0;
+    display: table;
+}
+.buttonArrowStyle{background-color: #31b0d5;color: #fff;font-size: 40px;padding: 3px 10px;border-radius: 3px;border: none;}
+.prev{float: left; background-color:#31b0d5; color:#fff; font-size:40px; padding: 3px 10px; border-radius: 3px; border:none;}
+.next{float: left !important; background-color:#31b0d5; color:#fff; font-size:40px; padding: 3px 10px; border-radius: 3px; border:none;}
+#jcl-demo a.prev, #jcl-demo a.next, #jcl-demo a.go, .jcl-demo a.prev, .jcl-demo a.next{font-size: 24px; padding: 5px; width: 28px;}
+.toggle-editor{display: none;}
+/*#jcl-demo{margin: 0 auto;}*/
+#jcl-demo .mid{margin: 0; width: inherit; height: 90vh; box-sizing: content-box;}
+.carousel{max-width: 90%; padding: 0 !important; margin: 0 auto; float: none; float: left !important;}
+.canvasHolder{margin: 0 auto;}
+.canvasHolder .canvas-container{position: absolute !important;}
+#jcl-demo .custom-container{margin: 0;}
+.toolbarMng button i{padding-top: 9px;}
+md-input-container textarea.md-input{ min-height: 90px !important; border:1px solid #ddd;}
+/*#jcl-demo .carousel{width: 100% !important;}*/
+md-toast.md-success-toast-theme .md-toast-content{
+    background-color: green;
+}
+md-toast.md-error-toast-theme .md-toast-content{
+    background-color: #e60000;
+}
+.loadercontainer{
+    position:absolute; top:0; left:50; right: 0; bottom: 0; height:100%; width:100%; z-index: 5; background-color:rgba(225, 225, 225, 0.5);
+}
+.loadercls{
+    position:absolute; top:50%; left:50%; height:50px; width:100px; margin-top:-25px; margin-left:-50px;
+}
+#jcl-demo .widget img{
+    width: inherit; box-sizing: content-box;
+}
+canvas{display: block; overflow: hidden;}
+.md-input-container{margin:10px 0px!important; }
+.ulcls{
+    background-color:#fff; border:1px solid #ddd;
+}
+.listclass{
+    float:left; padding:5px; list-style:none; cursor:pointer;
+}
+.leftBrow{position: fixed;left: 0;}
+.rightBrow{position: fixed;right:0;}
+@media screen and (max-width:1925px){
+    #jcl-demo .mid{height: 76vh;}
+}
+
+@media screen and (max-width: 699px) and (min-width: 520px), (min-width: 1800px) {
+   #jcl-demo .mid{height: 76vh;}
+}
+@media screen and (max-width:1280px){
+    #jcl-demo .mid{height: 67vh;}
+}
+
+@media screen and (max-width:959px){
+   #jcl-demo .mid{height: auto;width: 100%;}
+}

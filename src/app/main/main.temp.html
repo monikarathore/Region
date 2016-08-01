@@ -1,0 +1,127 @@
+<!-- Top Header Region Button  -->
+<md-toolbar layout="column" layout-padding class="toolbarMng">
+	<div layout="row" layout-sm="row" layout-align="center center" layout-wrap="">
+		<md-button layout-sm="column" class="md-raised md-default" ng-click="setOptionsObject('internal'); activecls = 3" ng-class="{activeCls: activecls === 3}"><i class="fa fa-file-text">&nbsp;</i>internal</md-button>
+		<md-button layout-sm="column" class="md-raised md-default" ng-click="setOptionsObject('website'); activecls = 1" ng-class="{activeCls: activecls === 1}"><i class="fa fa-globe">&nbsp;</i>website</md-button>
+		<md-button layout-sm="column" class="md-raised md-default" ng-click="setOptionsObject('email'); activecls = 2" ng-class="{activeCls: activecls === 2}"><i class="fa fa-envelope">&nbsp;</i>email</md-button>
+		<md-button layout-sm="column" class="md-raised md-default" ng-click="setOptionsObject('phone'); activecls = 4" ng-class="{activeCls: activecls === 4}"><i class="fa fa-phone">&nbsp;</i>phone</md-button>
+		<md-button layout-sm="column" class="md-raised md-default" ng-click="setOptionsObject('video'); activecls = 5" ng-class="{activeCls: activecls === 5}"><i class="fa fa-film">&nbsp;</i>video</md-button>
+		<md-button layout-sm="column" class="md-raised md-default" ng-click=" setOptionsObject('iframe'); activecls = 6" ng-class="{activeCls: activecls === 6}"><i class="fa fa-image">&nbsp;</i>iframe</md-button>
+	</div>
+</md-toolbar>
+
+<!-- Center big thumbnails  -->
+<section layout="row" flex layout-padding>
+	<md-content flex layout-padding layout="row" md-component-id="center" layout-fill layout-align="top center">
+		<div layout="column">
+			<button type="button" class="fa fa-arrow-circle-o-left buttonArrowStyle" ng-click="previousRegion(filename)"></button>
+		</div>
+		<div class="canvasHolder" layout="column">
+			<canvas id="canvasid" width="433" height="542" style="width:100%;height:100%"> </canvas>
+			<div id="jcl-demo" class="cntr canvasonImage">
+				<div class="custom-container widget">
+					<div class="mid">
+						<img ng-src="{{ imgpath }}" img-preload class="fade">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div layout="column">
+			<button type="button" class="fa fa-arrow-circle-o-right buttonArrowStyle" ng-click="nextRegion(filename)"></button>
+		</div>
+	</md-content>
+</section>
+
+<!-- Footer Thumbnails  -->
+<section class="bottom-bar" draggable>
+	<div layout="column" sm-component-id="center" layout-fill layout-align="bottom center">
+		<div layout="row">
+			<div layout="column" layout-align="center center" class="sm-padding">
+				<span>
+					<button ng-disabled="initialval<=0" ng-style="(initialval <= 0)?{'background-color':'#ddd'}:{'background-color':'#31b0d5'}" class="prev fa fa-arrow-circle-o-left" ng-click="previousthumb()">
+					</button>
+				</span>
+			</div>
+			
+			<div layout="column" layout-align="center start" layout-padding flex>
+				<ul class="ulcls">
+					<li class="listclass" ng-repeat="imgs in regionsimages" data-pageid="page{{ imgs.imageid }}" ng-click="loadregion(imgs.imageid)">
+						<img ng-src="{{ imgs.img }}" img-preload class="fade" style="height:40px; width:40px;">
+					</li>
+				</ul>
+			</div>
+			<div layout="column" layout-align="center center" class="sm-padding">
+				<span>
+					<button ng-disabled="increment > storedImageResources.length" ng-style="(increment >= storedImageResources.length)?{'background-color':'#ddd'}:{'background-color':'#31b0d5'}" class="next fa fa-arrow-circle-o-right" ng-click="nextthumb()">
+					</button>
+				</span>
+			</div>
+			
+		</div>
+	</div>
+</section>
+
+<!-- Region Editor  -->
+<section layout="row" flex layout-padding>
+	<div class="md-sidenav-left md-whiteframe-z2 properties-panel" draggable md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" layout="column" ng-show="isCanvasVisible">
+		<md-button class="md-fab md-accent toggle-editor" aria-label="refresh" ng-hide="hide">
+			<md-tooltip md-direction="left">
+				Open editor
+			</md-tooltip>
+			<md-icon class="fa fa-pencil" style="width: 24px; height: 24px;">
+			</md-icon>
+		</md-button>
+		<md-toolbar class="properties-header">
+			<div class="md-toolbar-tools text-uppercase">{{ regiontypeLabel | uppercase }}</div>
+		</md-toolbar>
+		<form name="regionForm">
+			<md-content>
+				<md-list>
+					<md-input-container class="md-block" ng-if="regiontypeLabel =='internal' || regiontypeLabel =='website' || regiontypeLabel =='iframe'">
+						<label>{{ elementlabel }}</label>
+						<input name="target" type="text" ng-model="region.target" required aria-label="true" ng-keyup="keyPressFunc(region.target)">
+						<div ng-messages="regionForm.target.$error" role="alert">
+							<div ng-message-exp="['required']">Required field.</div>
+						</div>
+					</md-input-container>
+
+					<md-input-container class="md-block" ng-if="regiontypeLabel =='phone'">
+						<label>{{ elementlabel }}</label>
+						<input name="target" type="phone" ng-model="region.target" required aria-label="true" ng-keyup="keyPressFunc(region.target)" minlength="10" maxlength="10" ng-pattern="/^[0-9]{10}$/">
+						<div ng-messages="regionForm.target.$error" role="alert">
+							<div ng-message-exp="['required', 'pattern']">Valid phone number.</div>
+						</div>
+					</md-input-container>
+					<md-input-container class="md-block" ng-if="regiontypeLabel =='email'">
+						<label>{{ elementlabel }}</label>
+						<input name="target" type="email" ng-model="region.target" required aria-label="true" ng-keyup="keyPressFunc(region.target)" ng-pattern="/^.+@.+\..+$/">
+						<div ng-messages="regionForm.target.$error" role="alert">
+							<div ng-message-exp="['required', 'pattern']">Valid email id.</div>
+						</div>
+					</md-input-container>
+					<md-input-container class="md-block" ng-if="regiontypeLabel ==='video'">
+						<label>{{ elementlabel }}</label>
+						<textarea class="video-textarea" name="target" required ng-model="region.target" md-rows="200" md-maxlength="1000" aria-label="true" md-maxlength="10" ng-keyup="keyPressFunc(region.target)"></textarea>
+						<div ng-messages="regionForm.target.$error">
+							<div ng-message="required">Required field</div>
+						</div>
+					</md-input-container>
+					<md-input-container class="md-block hidden" flex ng-if="regiontypeLabel ==='website'">
+						<label>Target</label>
+						<md-select ng-model="region.options.target">
+							<md-option ng-repeat="opt in targetopt" value="{{opt.abbrev}}">
+								{{opt.abbrev}}
+							</md-option>
+						</md-select>
+					</md-input-container>
+				</md-list>
+				<div>
+					<md-button class="md-raised md-primary" ng-disabled="regionForm.$invalid" ng-click="saveRegion()">Save</md-button>
+					<md-button class="md-raised md-primary" ng-click="cancelReset()">Cancel</md-button>
+				</div>
+			</md-content>
+		</form>
+	</div>
+</section>
+
+<loadingbar isvisible="activated"></loadingbar>

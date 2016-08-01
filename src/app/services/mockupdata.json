@@ -1,0 +1,93 @@
+{"objects": [
+	{
+		"left":100,
+		"top":100,
+		"width":120,
+		"height":100,
+		"transparentCorners": false,
+		"hasRotatingPoint": false,
+		"type":"rect",
+		"regiontype":"internal",
+		"target":16,
+		"options": {
+			"target": "_self"
+		},
+		"fill": "rgba(63,81,181,0.8)"
+	},
+	{
+		"left":150,
+		"top":50,
+		"width":120,
+		"height":100,
+		"transparentCorners": false,
+		"hasRotatingPoint": false,
+		"type":"rect",
+		"regiontype":"website",
+		"target":"http://logostudio.papionne.com/?p=1363",
+		"options": {
+			"target": "_self"
+		},
+		"fill": "rgba(63,81,181,0.8)"
+	},
+	{
+		"left":100,
+		"top":150,
+		"width":120,
+		"height":100,
+		"transparentCorners": false,
+		"hasRotatingPoint": false,
+		"type":"rect",
+		"regiontype":"email",
+		"target":"test@testing.com",
+		"options": {
+			"target": "_self"
+		},
+		"fill": "rgba(63,81,181,0.8)"
+	},
+	{
+		"left":55,
+		"top":200,
+		"width":120,
+		"height":100,
+		"transparentCorners": false,
+		"hasRotatingPoint": false,
+		"type":"rect",
+		"regiontype":"phone",
+		"target":"123-345-67890",
+		"options": {
+			"target": "_self"
+		},
+		"fill": "rgba(63,81,181,0.8)"
+	},
+	{
+		"left":200,
+		"top":120,
+		"width":120,
+		"height":100,
+		"transparentCorners": false,
+		"hasRotatingPoint": false,
+		"type":"rect",
+		"regiontype":"video",
+		"target": "<iframe width=\"640\" height=\"360\" src=\"https:\/\/www.youtube.com\/embed\/hI42askNUFM\" frameborder=\"0\" allowfullscreen><\/iframe>",
+		"options": {
+			"target": "_self"
+		},
+		"fill": "rgba(63,81,181,0.8)"
+	},
+	{
+		"left":100,
+		"top":130,
+		"width":120,
+		"height":100,
+		"transparentCorners": false,
+		"hasRotatingPoint": false,
+		"type":"rect",
+		"regiontype":"iframe",
+		"target":"http://logostudio.papionne.com/?p=1363",
+		"options": {
+			"target": "_self"
+		},
+		"fill": "rgba(63,81,181,0.8)"
+	}
+]
+}
